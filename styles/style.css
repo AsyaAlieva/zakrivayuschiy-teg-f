@@ -114,6 +114,13 @@
   position: relative;
 }
 
+@supports (-webkit-text-stroke: 1px #fff) {
+  .card__label {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+  }
+}
+
 .card__label {
   position: absolute;
   top: 25px;
@@ -154,9 +161,7 @@
 
 .card__text,
 .card__placeholder {
-  /* margin: 0 0 20px; */
   margin-top: 20px;
-  line-height: 1.4;
   font-family: var(--font-normal);
   font-variation-settings: 'wght' 400;
   font-size: 18px;
