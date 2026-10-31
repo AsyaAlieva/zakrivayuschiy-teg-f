@@ -10,26 +10,6 @@
 
 */
 
-:root {
-  --border: 2px solid #000;
-  --pad: 16px;
-  --overlap: 330px;
-  --font-pixel: "PressStart2P", sans-serif;
-  --font-normal: "Inter", sans-serif;
-  --page-gradient:
-    repeating-linear-gradient(
-      to right,
-      #d3d3d3 0 2px,
-      transparent 2px 4px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      #d3d3d3 0 2px,
-      transparent 2px 4px
-    ),
-    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
-}
-
 *,
 *::before,
 *::after {
@@ -37,8 +17,6 @@
 }
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
   margin: 0;
   font-family: var(--font-pixel);
   font-size: 16px;
@@ -50,11 +28,7 @@
 
 /* ---------- Шапка ---------- */
 .hero {
-  display: flex;
-  justify-content: center;
-  padding: 24px var(--pad);
-  /* background: url("img/dither.png") repeat; */
-  image-rendering: pixelated;
+  padding-block: clamp(64px, 20vw, 96px);
 }
 
 .hero__title {
@@ -62,47 +36,54 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 590px;
-  min-width: 375px;
-  min-height: 327px;
   padding: 48px 16px;
   background: #fff;
   border: var(--border);
   text-align: center;
+  min-height: clamp(327px, 30vw, 368px);
 }
 
 .hero__logo {
   margin: 0 0 12px;
-  font-size: 49px;
+  /* font-size: 49px; */
+  font-size: clamp(32px, 9vw, 65px);
   font-variation-settings: 'wght' 400;
   font-family: var(--font-pixel);
 }
 
 .hero__subtitle {
   margin: 0;
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: clamp(12px, 3.5vw, 23px);
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
   font-family: var(--font-pixel);
 }
 
 /* ---------- Лента ---------- */
-.feed {
+.main {
   position: relative;
   z-index: 1;
   padding-bottom: 32px;
 }
 
-.feed__list {
+.main__list {
   display: flex;
   flex-direction: column;
   gap: 52px;
-  max-width: 590px;
-  margin: 24px auto 0;
   padding: 0;
+  margin-block: 0; 
   list-style: none;
 }
+
+.hero__title,
+.main__list {
+  width: var(--container-width);
+  margin-inline: auto;
+}
+
+/* .hero, .hero__title { outline: 2px solid red; }
+.hero__title { outline-color: blue; } */
 
 /* ---------- Карточка ---------- */
 .card {
@@ -207,9 +188,6 @@
 /* =========================== Иконка Сердечко ============================= */
 
 .like-icon {
-  --contour-color: #000;
-  --animation-fill-color: #FF0000;
-  
   display: block;
   width: 39px;
   height: 36px;
@@ -363,7 +341,7 @@
   z-index: 2;
   mix-blend-mode: difference;
   color: #fff;
-  /* fill: #fff; */
+  /* fill: #fff; - уже указан внутри svg-файла */ 
 }
 
 .card__like-button {
@@ -448,30 +426,4 @@
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
   line-height: 150%;
-}
-
-
-/* ---------- Десктоп-версия ---------- */
-@media (min-width: 1024px) {
-  .hero {
-    padding: 84px var(--pad) calc(80px + var(--overlap));
-  }
-
-  .hero__title {
-    padding: 72px 16px;
-    width: 700px;
-    height: 368px;
-  }
-
-  .hero__logo {
-    font-size: 65px;
-  }
-
-  .hero__subtitle {
-    font-size: 23px;
-  }
-
-  .feed__list {
-    margin-top: calc(-1 * var(--overlap));
-  }
 }
