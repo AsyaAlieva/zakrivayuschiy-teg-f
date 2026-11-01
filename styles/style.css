@@ -60,7 +60,6 @@
 .main {
   position: relative;
   z-index: 1;
-  padding-bottom: 32px;
 }
 
 .main__list {
@@ -268,8 +267,7 @@
 
 /* ======== Интерактивные элементы кнопок (Like, Сохранить, ОК) ========= */
 
-.button__text,
-.save__label {
+.button__text {
   font-family: var(--font-pixel);
   font-size: 14px;
 }
@@ -294,20 +292,16 @@
   padding: 12px 24px;
 }
 
-.modal__close-btn span {
+.modal__close-btn .button__text {
   text-transform: uppercase;
 }
 
-.card__like-button:focus-visible,
-.save:focus-visible,
-.modal__close-btn:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px 0 #000;
 }
 
 /* Выезжающий черный фон (псевдоэлемент) */
-.card__like-button::before,
-.save::before,
-.modal__close-btn::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -317,18 +311,14 @@
   z-index: 1;
 }
 
-.card__like-button:hover::before,
-.save:hover::before,
-.modal__close-btn:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
 /* Режим смешивания (difference) для текста и иконок внутри кнопок */
-.card__like-button .button__text,
-.save .save__label,
+.button__text,
 .save svg,
-.modal__content svg,
-.modal__close-btn span {
+.modal__content svg {
   position: relative;
   z-index: 2;
   mix-blend-mode: difference;
@@ -352,9 +342,7 @@
   transition: border-color 0.3s ease;
 }
 
-.save:focus,
-.card__icon-button:focus,
-.modal__close-btn:focus {
+.button:focus {
   outline: none;
 }
 
@@ -371,7 +359,7 @@
   justify-content: center;
   align-content: center;
   gap: 12px;
-  margin: 32px auto 0;
+  margin: 50px auto 100px auto;
   padding-top: 20px;
   padding-bottom: 20px;
   width: clamp(306px, 295.8px + 2.723vw, 335px);
