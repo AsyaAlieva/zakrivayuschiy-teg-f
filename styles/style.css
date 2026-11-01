@@ -28,7 +28,7 @@
 
 /* ---------- Шапка ---------- */
 .hero {
-  padding-block: clamp(64px, 20vw, 96px);
+  padding-block: 100px;
 }
 
 .hero__title {
@@ -36,12 +36,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 48px 16px; */
   background: #fff;
   border: var(--border);
   text-align: center;
-  /* min-height: clamp(327px, 30vw, 368px); */
-  padding: clamp(80px, 22vw, 130px) 16px;
+  padding-block: clamp(119px, 116.2px + 0.751vw, 127px);
+  padding-inline: 16px;
 }
 
 .hero__logo {
@@ -349,7 +348,6 @@
   position: relative;
   background-color: #fff;
   border: 2px solid transparent;
-  /* margin-right: 12px; */
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
@@ -367,15 +365,20 @@
 
 /* ================ Кнопка «Сохранить на память» =============== */
 .save {
+  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   gap: 12px;
   width: max-content;
   margin: 32px auto 0;
-  padding: 16px 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: clamp(306px, 295.8px + 2.723vw, 335px);
 }
 
 .save-icon {
-  --icon-size: clamp(21px, 30.5px - 0.657vw, 28px);
   width: var(--icon-size);
   height: var(--icon-size);
 }
@@ -383,8 +386,6 @@
 
 /* ========== Модальное окно ============== */
 .modal {
-  /* display: none; */
-  /* max-width: 340px; */
   position: fixed;
   inset: 0;
   max-inline-size: 340px;
@@ -414,7 +415,6 @@
   align-items: center;
   gap: 16px;
   padding: 12px;
-  /* border: 1px dashed #000; */
 }
 
 .modal__text {

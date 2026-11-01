@@ -5,6 +5,7 @@
   --container-width: clamp(375px, 100%, 700px);
   --font-pixel: "PressStart2P", sans-serif;
   --font-normal: "Inter", sans-serif;
+  --icon-size: clamp(21px, 30.5px - 0.657vw, 28px);
   --page-gradient:
     repeating-linear-gradient(
       to right,
